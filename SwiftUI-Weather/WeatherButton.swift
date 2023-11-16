@@ -17,7 +17,7 @@ struct WeatherButtonText: View {
     var body: some View {
         Text(buttonText)
             .frame(width: 280, height: 50)
-            .background(backgroundColor)
+            .background(backgroundColor.gradient)
             .foregroundColor(textColor)
             .font(.system(size: 20, weight: .bold, design: .default))
             .clipShape(.buttonBorder)

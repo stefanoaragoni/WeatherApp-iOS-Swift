@@ -14,7 +14,7 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             
-            BackgroundView(isNight: $isNight)
+            BackgroundView(isNight: isNight)
             
             VStack {
                 
@@ -80,7 +80,7 @@ struct WeatherDayView: View {
                 .foregroundColor(.white)
             
             Image(systemName: imageName)
-                .renderingMode(.original)               // Allows the image to have the default colors
+                .symbolRenderingMode(.multicolor)
                 .resizable()                            // Makes de image bigger; fits the whole screen
                 .aspectRatio(contentMode: .fit)         // Makes the image have its original aspect ratio
                 .frame(width: 40, height: 40)         // Limits the size of the image
@@ -95,7 +95,7 @@ struct WeatherDayView: View {
 
 struct BackgroundView: View {
     
-    @Binding var isNight: Bool
+    var isNight: Bool
     
     var body: some View {
         
@@ -103,7 +103,7 @@ struct BackgroundView: View {
                                                    isNight ? .gray : Color("lightBlue")]),
                        startPoint: .topLeading,
                        endPoint: .bottomTrailing)
-        .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+        .ignoresSafeArea()
     }
 }
 
